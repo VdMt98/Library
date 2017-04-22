@@ -33,6 +33,7 @@ namespace Library.Views
             returning.IsEnabled = true;
             returning.Background = Brushes.White;
 
+
             MenuItem selected = (MenuItem)sender;
             selected.IsEnabled = false;
             selected.Background = Brushes.LightGray;
