@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Models
+namespace Library.Controllers.TableElements
 {
-    class BookStatus:BaseTable
+    class ProfileStatus : BaseTableElement
     {
-        
         string status { get; set; }
 
-        public BookStatus(int id, string status):base(id)
+        public ProfileStatus(int id, string status):base(id)
         {
             this.status = status;
         }

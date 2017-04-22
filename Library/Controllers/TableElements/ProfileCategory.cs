@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Models
+namespace Library.Controllers.TableElements
 {
-    class ProfileCategory:BaseTable
+    class ProfileCategory:BaseTableElement
     {
         string category { get; set; }
 
