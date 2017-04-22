@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    class ProfileStatus:BaseTable
+    abstract class BaseTable
     {
-        string status { get; set; }
+        int id { get; set; }
 
-        public ProfileStatus(int id, string status):base(id)
+        public BaseTable(int id)
         {
-            this.status = status;
+            this.id = id;
         }
     }
 }

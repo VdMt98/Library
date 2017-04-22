@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    class BookStatus
+    class BookStatus:BaseTable
     {
-        int id { get; set; }
+        
         string status { get; set; }
 
-        public BookStatus() { }
-
-        public BookStatus(int id, string status)
+        public BookStatus(int id, string status):base(id)
         {
-            this.id = id;
             this.status = status;
         }
     }

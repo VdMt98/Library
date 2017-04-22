@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\BaseTable.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookStatus.cs" />
     <Compile Include="Models\Profile.cs" />

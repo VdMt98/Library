@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    class ProfileCategory
+    class ProfileCategory:BaseTable
     {
-        int id { get; set; }
         string category { get; set; }
 
-        public ProfileCategory() { }
 
-        public ProfileCategory(int id, string category)
+        public ProfileCategory(int id, string category):base(id)
         {
-            this.id = id;
             this.category = category;
         }
     }

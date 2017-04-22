@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    class Profile
+    class Profile:BaseTable
     {
-        int id { get; set; }
         int idProfile { get; set; }
         string password { get; set; }
         string name { get; set; }
@@ -18,12 +17,11 @@ namespace Library.Models
         ProfileStatus profileStatus { get; set; }
         ProfileCategory profileCategory { get; set; }
 
-        public Profile() { }
 
         public Profile(int id, int idProfile, string password, string name, string surname, 
-            string telephone, string address, ProfileStatus profileStatus, ProfileCategory profileCategory)
+            string telephone, string address, ProfileStatus profileStatus, ProfileCategory profileCategory):base(id)
         {
-            this.id = id;
+            
             this.idProfile = idProfile;
             this.password = password;
             this.name = name;
