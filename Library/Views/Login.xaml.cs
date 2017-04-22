@@ -31,14 +31,7 @@ namespace Library.Views
         {
             //int login = int.Parse(tbLogin.Text);
             //String password = pbPassword.Password;
-            int bookId = 1;
-            List<Book> list = DAO.GetBookTable().GetBooksInuseByRecipientId(1);
-            foreach (var book in list)
-            {
-                MessageBox.Show(book.ToString());
-            }
-            
-=======
+
             try
             {
                 int login = int.Parse(tbLogin.Text);
@@ -49,7 +42,7 @@ namespace Library.Views
             {
                 MessageBox.Show("Некоректно введені дані");
             }
->>>>>>> master
+
         }
     }
 }
