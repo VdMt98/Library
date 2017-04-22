@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
         mc:Ignorable="d"
-        Title="ReaderMainWindow" Height="300" Width="300">
+        Title="ReaderMainWindow" WindowState="Maximized" Height="742" Width="1366">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </Window>

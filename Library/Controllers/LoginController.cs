@@ -10,7 +10,7 @@ namespace Library.Controllers
 {
     class LoginController
     {
-        public Profile worker;
+        public static Profile worker { get; set; }
 
         public void LogIn(int ids, string password, Login log)
         {

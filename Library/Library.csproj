@@ -77,7 +77,9 @@
     <Compile Include="Controllers\Connector.cs" />
     <Compile Include="Controllers\DAO.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ReaderMainWindowController.cs" />
     <Compile Include="Models\TableElements\BaseTableElement.cs" />
+    <Compile Include="Models\BookRow.cs" />
     <Compile Include="Models\Tables\BaseTable.cs" />
     <Compile Include="Models\TableElements\Book.cs" />
     <Compile Include="Models\TableElements\BookStatus.cs" />

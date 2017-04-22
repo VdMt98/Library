@@ -8,14 +8,14 @@ namespace Library.Models.TableElements
 {
     public class Book:BaseTableElement
     {
-        string name { get; set; }
-        string author { get; set; }
-        string description { get; set; }
-        string position { get; set; }
-        DateTime issueDate { get; set; }
-        int issueTerm { get; set; }
-        Profile recipient { get; set; }
-        BookStatus status { get; set; }
+        public string name { get; set; }
+        public string author { get; set; }
+        public string description { get; set; }
+        public string position { get; set; }
+        public DateTime issueDate { get; set; }
+        public int issueTerm { get; set; }
+        public Profile recipient { get; set; }
+        public BookStatus status { get; set; }
 
         public Book(int id, string name, string author, string description, string position, DateTime issueDate,
             int issueTerm, Profile recipient, BookStatus status) : base(id)

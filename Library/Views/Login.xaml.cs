@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Library.Controllers;
 using Library.Models.Tables;
 using Library.Models.TableElements;
+using MySql.Data.MySqlClient;
 
 namespace Library.Views
 {
@@ -41,6 +42,10 @@ namespace Library.Views
             }catch(FormatException)
             {
                 MessageBox.Show("Некоректно введені дані");
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Неправильно введені id або пароль");
             }
 
         }
