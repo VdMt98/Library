@@ -89,6 +89,9 @@
     <Compile Include="Views\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AdminPages\EditingProfile.xaml.cs">
+      <DependentUpon>EditingProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LibrarianPages\BookReturnink.xaml.cs">
       <DependentUpon>BookReturnink.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,9 @@
     </Compile>
     <Compile Include="Views\LibrarianPages\ReaderLoginization.xaml.cs">
       <DependentUpon>ReaderLoginization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LibrarianPages\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -112,6 +118,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AdminPages\EditingProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LibrarianPages\BookReturnink.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LibrarianPages\ReaderLoginization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LibrarianPages\Search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

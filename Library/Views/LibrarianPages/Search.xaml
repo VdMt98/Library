@@ -1,0 +1,20 @@
+﻿<Page x:Class="Library.Views.LibrarianPages.Search"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Library.Views.LibrarianPages"
+      mc:Ignorable="d" 
+       d:DesignHeight="691" d:DesignWidth="1093"
+      Title="Search">
+
+    <Grid Background="White">
+        <Button x:Name="button" Content="Пошук" HorizontalAlignment="Left" Margin="910,31,0,0" VerticalAlignment="Top" Width="75" Height="39" FontSize="18"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="39" Margin="205,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="485" VerticalContentAlignment="Center" FontSize="18" />
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="710,31,0,0" VerticalAlignment="Top" Width="175" Height="39" FontSize="18">
+            <ComboBoxItem Name="ForName" Content="За назвою" IsSelected="True" />
+            <ComboBoxItem Name="ForAuthor" Content="За автором "/>
+        </ComboBox>
+
+    </Grid>
+</Page>
