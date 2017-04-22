@@ -38,6 +38,18 @@ namespace Library.Views
                 MessageBox.Show(book.ToString());
             }
             
+=======
+            try
+            {
+                int login = int.Parse(tbLogin.Text);
+                String password = pbPassword.Password;
+                LoginController lg = new LoginController();
+                lg.LogIn(login, password, this);
+            }catch(FormatException)
+            {
+                MessageBox.Show("Некоректно введені дані");
+            }
+>>>>>>> master
         }
     }
 }

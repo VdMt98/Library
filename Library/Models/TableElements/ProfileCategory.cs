@@ -8,7 +8,7 @@ namespace Library.Models.TableElements
 {
     public class ProfileCategory:BaseTableElement
     {
-        string category { get; set; }
+        public string category { get; set; }
 
 
         public ProfileCategory(int id, string category):base(id)

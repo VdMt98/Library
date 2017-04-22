@@ -8,14 +8,14 @@ namespace Library.Models.TableElements
 {
     public class Profile:BaseTableElement
     {
-        int idProfile { get; set; }
-        string password { get; set; }
-        string name { get; set; }
-        string surname { get; set; }
-        string telephone { get; set; }
-        string address { get; set; }
-        ProfileStatus profileStatus { get; set; }
-        ProfileCategory profileCategory { get; set; }
+        public int idProfile { get; set; }
+        public string password { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string telephone { get; set; }
+        public string address { get; set; }
+        public ProfileStatus profileStatus { get; set; }
+        public ProfileCategory profileCategory { get; set; }
 
 
         public Profile(int id, int idProfile, string password, string name, string surname, 
