@@ -39,7 +39,7 @@ namespace Library.Views
             {
                 case "profileEditin":
                     EditingProfile ep = new EditingProfile();
-                    ep.Show();
+                    ep.Show();//
                     break;
                 
             }
