@@ -23,5 +23,28 @@ namespace Library.Views
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            search.IsEnabled = true;
+            search.Background = Brushes.White;
+            issuance.IsEnabled = true;
+            issuance.Background = Brushes.White;
+            returning.IsEnabled = true;
+            returning.Background = Brushes.White;
+
+            MenuItem selected = (MenuItem)sender;
+            selected.IsEnabled = false;
+            selected.Background = Brushes.LightGray;
+            switch (selected.Name)
+            {
+                case "returning":
+                    frame.NavigationService.Navigate(new Uri("Views/LibrarianPages/BookReturnink.xaml", UriKind.Relative));
+                    break;
+                case "issuance":
+                    frame.NavigationService.Navigate(new Uri("Views/LibrarianPages/ReaderLoginization.xaml", UriKind.Relative));
+                    break;
+            }
+        }
     }
 }

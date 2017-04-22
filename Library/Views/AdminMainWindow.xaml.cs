@@ -23,5 +23,16 @@ namespace Library.Views
         {
             InitializeComponent();
         }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        { 
+            profileEditin.IsEnabled = true;
+            profileEditin.Background = Brushes.White;
+            BookEditing.IsEnabled = true;
+            BookEditing.Background = Brushes.White;
+
+            MenuItem selected = (MenuItem)sender;
+            selected.IsEnabled = false;
+            selected.Background = Brushes.LightGray;
+        }
     }
 }
