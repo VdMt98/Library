@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Models
+namespace Library.Controllers.TableElements
 {
-    class Profile:BaseTable
+    class Profile:BaseTableElement
     {
         int idProfile { get; set; }
         string password { get; set; }
