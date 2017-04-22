@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Library.Views.AdminPages;
 
 namespace Library.Views
 {
@@ -33,6 +34,15 @@ namespace Library.Views
             MenuItem selected = (MenuItem)sender;
             selected.IsEnabled = false;
             selected.Background = Brushes.LightGray;
+
+            switch (selected.Name)
+            {
+                case "profileEditin":
+                    EditingProfile ep = new EditingProfile();
+                    ep.Show();
+                    break;
+                
+            }
         }
     }
 }

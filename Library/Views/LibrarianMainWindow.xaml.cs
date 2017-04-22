@@ -45,6 +45,9 @@ namespace Library.Views
                 case "issuance":
                     frame.NavigationService.Navigate(new Uri("Views/LibrarianPages/ReaderLoginization.xaml", UriKind.Relative));
                     break;
+                case "search":
+                    frame.NavigationService.Navigate(new Uri("Views/LibrarianPages/Search.xaml", UriKind.Relative));
+                    break;
             }
         }
     }
