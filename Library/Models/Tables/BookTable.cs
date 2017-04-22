@@ -32,19 +32,37 @@ namespace Library.Models.Tables
             string Description = reader["Description"].ToString();
             string Position = reader["Position"].ToString();
             string IssueDate = reader["IssueDate"].ToString();
-            int IssueTerm = int.Parse(reader["IssueTerm"].ToString());
-            int RecipientId = int.Parse(reader["Recipient"].ToString());
+            string IssueTerm = reader["IssueTerm"].ToString();
+            string RecipientId = reader["Recipient"].ToString();
             int StatusId = int.Parse(reader["Status"].ToString());
-            Profile recipient = DAO.GetProfileTable().GetElement(RecipientId);
             BookStatus bookStatus = DAO.GetBookStatusTable().GetElement(StatusId);
-            string[] dateInfStr = IssueDate.Split('.');
-            int[] dateInf = new int[dateInfStr.Length];
-            for (int i = 0; i < dateInf.Length; i++) {
-                dateInf[i] = int.Parse(dateInfStr[i]);
+            DateTime issueDate = new DateTime();
+            int issueTerm = 0;
+            Profile recipient = null;
+            if (bookStatus.status.Equals("Inuse")) {
+                issueDate = DateTime.Parse(IssueDate);
+                issueTerm = int.Parse(IssueTerm);
+                recipient = DAO.GetProfileTable().GetElement(int.Parse(RecipientId));
             }
-            DateTime issueDate = new DateTime(dateInf[2], dateInf[1], dateInf[0]);
-            Book book = new Book(id, Name, Author, Description, Position, issueDate, IssueTerm, recipient, bookStatus);
-            return null;
+            Book book = new Book(id, Name, Author, Description, Position, issueDate, issueTerm, recipient, bookStatus);
+            return book;
+        }
+
+        public List<Book> GetBooksInuseByRecipientId(int recipientId) {
+            List<Book> result = new List<Book>();
+            string sql = String.Format("SELECT id FROM book WHERE Recipient={0};", recipientId.ToString());
+            MySqlConnection c = Connector.Instance.GetConnection();
+            MySqlCommand command = new MySqlCommand(sql, c);
+            MySqlDataReader reader = command.ExecuteReader();
+            List<int> booksids = new List<int>();
+            while (reader.Read()) {
+                int bookId = reader.GetInt32(0);
+                booksids.Add(bookId);
+            }
+            foreach (int bookid in booksids) {
+                result.Add(GetElement(bookid));
+            }
+            return result;
         }
     }
 }

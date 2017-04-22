@@ -13,7 +13,7 @@ namespace Library.Models.Tables
     {
         protected override string getSql_SelectById(int id)
         {
-            return String.Format("SELECT * FROM book WHERE id={0}", id.ToString());
+            return String.Format("SELECT * FROM bookstatus WHERE id={0}", id.ToString());
         }
         
 

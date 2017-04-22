@@ -9,11 +9,16 @@ namespace Library.Models.TableElements
     public class BookStatus : BaseTableElement
     {
         
-        string status { get; set; }
+        public string status { get; set; }
 
         public BookStatus(int id, string status) : base(id)
         {
             this.status = status;
+        }
+
+        public override string ToString()
+        {
+            return status;
         }
     }
 }

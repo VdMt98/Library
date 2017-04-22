@@ -29,5 +29,11 @@ namespace Library.Models.TableElements
             this.recipient = recipient;
             this.status = status;
         }
+
+        public override string ToString()
+        {
+            return String.Format("{0}; {1}; {2}; {3}; {4}; {5}; {6}; {7}; {8}; ", id, name, author,
+                description, position, issueDate.ToShortDateString(), issueTerm, recipient.id, status);
+        }
     }
 }

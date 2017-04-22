@@ -29,10 +29,14 @@ namespace Library.Views
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int login = int.Parse(tbLogin.Text);
-            String password = pbPassword.Password;
-            string info = DAO.GetProfileTable().GetProfileByLoginAndPassword(login, password).ToString();
-            MessageBox.Show(info);
+            //int login = int.Parse(tbLogin.Text);
+            //String password = pbPassword.Password;
+            int bookId = 1;
+            List<Book> list = DAO.GetBookTable().GetBooksInuseByRecipientId(1);
+            foreach (var book in list)
+            {
+                MessageBox.Show(book.ToString());
+            }
             
         }
     }
