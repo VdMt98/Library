@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 
-namespace Library.Controllers.TableElements
+namespace Library.Models.TableElements
 {
     public abstract class BaseTableElement
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Controllers.TableElements
+namespace Library.Models.TableElements
 {
-    class Profile:BaseTableElement
+    public class Profile:BaseTableElement
     {
         int idProfile { get; set; }
         string password { get; set; }
@@ -30,6 +30,11 @@ namespace Library.Controllers.TableElements
             this.address = address;
             this.profileStatus = profileStatus;
             this.profileCategory = profileCategory;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0}; {1}; {2}; {3}; {4}; {5}; {6}; {7};", idProfile.ToString(), password, name, surname, telephone, address, profileStatus.ToString(), profileCategory.ToString() );
         }
 
     }

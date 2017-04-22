@@ -83,6 +83,9 @@
     <Compile Include="Models\TableElements\Profile.cs" />
     <Compile Include="Models\TableElements\ProfileCategory.cs" />
     <Compile Include="Models\TableElements\ProfileStatus.cs" />
+    <Compile Include="Models\Tables\ProfileCategoryTable.cs" />
+    <Compile Include="Models\Tables\ProfileStatusTable.cs" />
+    <Compile Include="Models\Tables\ProfileTable.cs" />
     <Compile Include="Views\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Controllers.TableElements
+namespace Library.Models.TableElements
 {
-    class Book:BaseTableElement
+    public class Book:BaseTableElement
     {
         string name { get; set; }
         string author { get; set; }

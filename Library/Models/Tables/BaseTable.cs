@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Library.Controllers.TableElements;
+using Library.Models.TableElements;
 
-namespace Library.Controllers.Tables
+namespace Library.Models.Tables
 {
     public abstract class BaseTable<T> where T : BaseTableElement
     {
@@ -23,17 +23,17 @@ namespace Library.Controllers.Tables
                 if (e.id == id)
                     return e;
             }
-            try
-            {
+            //try
+            //{
                 T newElement = LoadElementFromDB(id);
                 elements.Add(newElement);
                 return newElement;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message.ToString());
-                // TODO: handle exception
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message.ToString());
+            //    // TODO: handle exception
+            //}
             throw new Exception("Can't load element");
         }
 

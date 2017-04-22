@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Controllers.TableElements
+namespace Library.Models.TableElements
 {
-    class ProfileCategory:BaseTableElement
+    public class ProfileCategory:BaseTableElement
     {
         string category { get; set; }
 
@@ -14,6 +14,11 @@ namespace Library.Controllers.TableElements
         public ProfileCategory(int id, string category):base(id)
         {
             this.category = category;
+        }
+
+        public override string ToString()
+        {
+            return category;
         }
     }
 }
