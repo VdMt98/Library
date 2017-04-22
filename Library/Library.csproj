@@ -83,6 +83,8 @@
     <Compile Include="Models\TableElements\Profile.cs" />
     <Compile Include="Models\TableElements\ProfileCategory.cs" />
     <Compile Include="Models\TableElements\ProfileStatus.cs" />
+    <Compile Include="Models\Tables\BookStatusTable.cs" />
+    <Compile Include="Models\Tables\BookTable.cs" />
     <Compile Include="Models\Tables\ProfileCategoryTable.cs" />
     <Compile Include="Models\Tables\ProfileStatusTable.cs" />
     <Compile Include="Models\Tables\ProfileTable.cs" />

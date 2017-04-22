@@ -29,16 +29,6 @@ namespace Library.Models.Tables
             reader.Read();
             int id = int.Parse(reader["id"].ToString());
             string Status = reader["Status"].ToString();
-            //string statusStr = "unknow status";
-            //switch (Status)
-            //{
-            //    case 1:
-            //        statusStr = "Normal";
-            //        break;
-            //    case 2:
-            //        statusStr = "Blocked";
-            //        break;
-            //}
             return new ProfileStatus(id, Status);
         }
 

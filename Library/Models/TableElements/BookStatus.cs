@@ -11,7 +11,7 @@ namespace Library.Models.TableElements
         
         string status { get; set; }
 
-        public BookStatus(int id, string status):base(id)
+        public BookStatus(int id, string status) : base(id)
         {
             this.status = status;
         }

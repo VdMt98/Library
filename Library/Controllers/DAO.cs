@@ -34,5 +34,21 @@ namespace Library.Controllers
                 profileStatusTable = new ProfileStatusTable();
             return profileStatusTable;
         }
+
+        private static BookStatusTable bookStatusTable;
+        public static BookStatusTable GetBookStatusTable()
+        {
+            if (bookStatusTable == null)
+                bookStatusTable = new BookStatusTable();
+            return bookStatusTable;
+        }
+
+        private static BookTable bookTable;
+        public static BookTable GetBookTable()
+        {
+            if (bookTable == null)
+                bookTable = new BookTable();
+            return bookTable;
+        }
     }
 }

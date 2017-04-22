@@ -9,26 +9,28 @@ using MySql.Data.MySqlClient;
 
 namespace Library.Models.Tables
 {
-    public class ProfileCategoryTable : BaseTable<ProfileCategory>
+    public class BookStatusTable : BaseTable<BookStatus>
     {
         protected override string getSql_SelectById(int id)
         {
-            return String.Format("SELECT * FROM profilecategory WHERE id={0}", id.ToString());
+            return String.Format("SELECT * FROM book WHERE id={0}", id.ToString());
         }
+        
 
-        protected override ProfileCategory LoadElementFromDB(int id)
+        protected override BookStatus LoadElementFromDB(int id)
         {
             MySqlConnection c = Connector.Instance.GetConnection();
             MySqlCommand command = new MySqlCommand(getSql_SelectById(id), c);
-            ProfileCategory profileCategory = GetProfileCategoryFromReader(command.ExecuteReader());
-            return profileCategory;
+            BookStatus bookStatus = GetBookStatusFromReader(command.ExecuteReader());
+            return bookStatus;
         }
 
-        private ProfileCategory GetProfileCategoryFromReader(MySqlDataReader reader) {
+        private BookStatus GetBookStatusFromReader(MySqlDataReader reader)
+        {
             reader.Read();
             int id = int.Parse(reader["id"].ToString());
-            string Category = reader["Category"].ToString();
-            return new ProfileCategory(id, Category);
+            string Status = reader["Status"].ToString();
+            return new BookStatus(id, Status);
         }
     }
 }
