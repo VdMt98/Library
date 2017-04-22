@@ -23,5 +23,11 @@ namespace Library.Views
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            String login = tbLogin.Text;
+            String password = pbPassword.Password;
+        }
     }
 }

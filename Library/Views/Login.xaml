@@ -11,9 +11,9 @@
         <Label x:Name="label" Content="Library" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="label1" Content="Введіть логін" HorizontalAlignment="Left" Margin="21,85,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Введіть пароль" HorizontalAlignment="Left" Margin="21,129,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="128,129,0,0" VerticalAlignment="Top" Width="132" Height="30" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="30" Margin="128,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center"/>
-        <Button x:Name="button" Content="Увійти" HorizontalAlignment="Left" Margin="101,200,0,0" VerticalAlignment="Top" Width="94" Height="25"/>
+        <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="128,129,0,0" VerticalAlignment="Top" Width="132" Height="30" VerticalContentAlignment="Center" Password=""/>
+        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="30" Margin="128,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Center"/>
+        <Button x:Name="button" Content="Увійти" HorizontalAlignment="Left" Margin="101,200,0,0" VerticalAlignment="Top" Width="94" Height="25" Click="button_Click"/>
 
     </Grid>
 </Window>
