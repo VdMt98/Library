@@ -64,5 +64,14 @@ namespace Library.Models.Tables
             }
             return result;
         }
+
+        public List<BookRow> GetRowsOfBooksInuseByRecipient(int recipientId) {
+            List<BookRow> result = new List<BookRow>();
+            var books = GetBooksInuseByRecipientId(recipientId);
+            foreach (var book in books) {
+                result.Add(book.GetBookRow());
+            }
+            return result;
+        }
     }
 }

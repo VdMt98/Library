@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Library.Models;
 
 namespace Library.Models.TableElements
 {
@@ -34,6 +35,11 @@ namespace Library.Models.TableElements
         {
             return String.Format("{0}; {1}; {2}; {3}; {4}; {5}; {6}; {7}; {8}; ", id, name, author,
                 description, position, issueDate.ToShortDateString(), issueTerm, recipient.id, status);
+        }
+
+        public BookRow GetBookRow()
+        {
+            return new BookRow(id, name, author, issueDate, issueTerm);
         }
     }
 }
