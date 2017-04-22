@@ -76,13 +76,13 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\Connector.cs" />
     <Compile Include="Controllers\DAO.cs" />
-    <Compile Include="Controllers\TableElements\BaseTableElement.cs" />
-    <Compile Include="Controllers\Tables\BaseTable.cs" />
-    <Compile Include="Controllers\TableElements\Book.cs" />
-    <Compile Include="Controllers\TableElements\BookStatus.cs" />
-    <Compile Include="Controllers\TableElements\Profile.cs" />
-    <Compile Include="Controllers\TableElements\ProfileCategory.cs" />
-    <Compile Include="Controllers\TableElements\ProfileStatus.cs" />
+    <Compile Include="Models\TableElements\BaseTableElement.cs" />
+    <Compile Include="Models\Tables\BaseTable.cs" />
+    <Compile Include="Models\TableElements\Book.cs" />
+    <Compile Include="Models\TableElements\BookStatus.cs" />
+    <Compile Include="Models\TableElements\Profile.cs" />
+    <Compile Include="Models\TableElements\ProfileCategory.cs" />
+    <Compile Include="Models\TableElements\ProfileStatus.cs" />
     <Compile Include="Views\AdminMainWindow.xaml.cs">
       <DependentUpon>AdminMainWindow.xaml</DependentUpon>
     </Compile>
@@ -157,9 +157,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
