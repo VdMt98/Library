@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Library.Controllers;
 
 namespace Library.Views
 {
@@ -22,12 +23,15 @@ namespace Library.Views
         public LibrarianMainWindow()
         {
             InitializeComponent();
+            LibrarianMainWindowController lc = new LibrarianMainWindowController();
+            string[] inf = lc.setMainInformation();
+            lbSurname.Content = inf[0];
+            lbName.Content = inf[1];
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            search.IsEnabled = true;
-            search.Background = Brushes.White;
+           
             issuance.IsEnabled = true;
             issuance.Background = Brushes.White;
             returning.IsEnabled = true;
@@ -45,9 +49,7 @@ namespace Library.Views
                 case "issuance":
                     frame.NavigationService.Navigate(new Uri("Views/LibrarianPages/ReaderLoginization.xaml", UriKind.Relative));
                     break;
-                case "search":
-                    frame.NavigationService.Navigate(new Uri("Views/LibrarianPages/Search.xaml", UriKind.Relative));
-                    break;
+                
             }
         }
     }

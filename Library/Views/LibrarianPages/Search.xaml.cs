@@ -22,7 +22,12 @@ namespace Library.Views.LibrarianPages
     {
         public Search()
         {
-           
+            InitializeComponent();
+            lbId.Content = Main.Instance.client.id;
+            lbName.Content = Main.Instance.client.name;
+            lbSurname.Content = Main.Instance.client.surname;
+            lbTepephone.Content = Main.Instance.client.telephone;
+            lbAddress.Content = Main.Instance.client.address;
         }
     }
 }
