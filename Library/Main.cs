@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Models.TableElements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,9 @@ namespace Library
             }
         }
 
+        public Profile worker { get; set; }
+
+        public Profile client { get; set; }
         
     }
 }

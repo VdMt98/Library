@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Library.Controllers;
+using Library.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +25,9 @@ namespace Library.Views
         public ReaderMainWindow()
         {
             InitializeComponent();
-            
+            ReaderMainWindowController rm = new ReaderMainWindowController();
+            ObservableCollection<BookRow> col = rm.createTable();
+            dataGrid.ItemsSource = col;
         }
     }
 }

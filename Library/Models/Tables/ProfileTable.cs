@@ -34,7 +34,7 @@ namespace Library.Models.Tables
         private Profile GetProfileFromReader(MySqlDataReader reader) {
             Profile result = null;
             reader.Read();
-            int id = reader.FieldCount;//int.Parse(reader ["id"].ToString());
+            int id = int.Parse(reader ["id"].ToString());
             int idProfile = int.Parse(reader["idProfile"].ToString());
             string Password = reader["Password"].ToString();
             string Name = reader["Name"].ToString();
@@ -47,7 +47,7 @@ namespace Library.Models.Tables
             ProfileCategory profileCategory = DAO.GetProfileCategoryTable().GetElement(profileCategoryId);
 
 
-            result = new Profile(1, idProfile, Password, Name, Surname, Telephone, Address, profileStatus, profileCategory);
+            result = new Profile(id, idProfile, Password, Name, Surname, Telephone, Address, profileStatus, profileCategory);
             
             return result;
         }

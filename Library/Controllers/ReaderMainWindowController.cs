@@ -3,6 +3,7 @@ using Library.Models.TableElements;
 using Library.Models.Tables;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,11 @@ using System.Threading.Tasks;
 namespace Library.Controllers
 {
     class ReaderMainWindowController
-    {   
-        public createTable()
+    {
+        public ObservableCollection<BookRow> createTable()
         {
-            List<Book> bookTablelist = DAO.GetBookTable().GetBooksInuseByRecipientId(LoginController.worker.id);
-
+            ObservableCollection<BookRow> bookRowlist = new ObservableCollection<BookRow>(DAO.GetBookTable().GetRowsOfBooksInuseByRecipient(Main.Instance.worker.id));
+            return bookRowlist;
         }
     }
 }

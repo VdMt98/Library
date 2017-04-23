@@ -11,7 +11,7 @@ namespace Library.Models
         public int id { get; set; }
         public string name { get; set; }
         public string author { get; set; }
-        public DateTime issueDate { get; set; }
+        public string issueDate { get; set; }
         public int issueTerm { get; set; }
         
         public BookRow(int id, string name, string author, DateTime issueDate, int issueTerm)
@@ -19,7 +19,7 @@ namespace Library.Models
             this.id = id;
             this.name = name;
             this.author = author;
-            this.issueDate = issueDate;
+            this.issueDate = issueDate.ToShortDateString();
             this.issueTerm = issueTerm;
         }
     }

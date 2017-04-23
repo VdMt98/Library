@@ -10,15 +10,15 @@ namespace Library.Controllers
 {
     class LoginController
     {
-        public static Profile worker { get; set; }
+        public static Profile locworker { get; set; }
 
         public void LogIn(int ids, string password, Login log)
         {
-            worker = DAO.GetProfileTable().GetProfileByLoginAndPassword(ids, password);
+            Main.Instance.worker = DAO.GetProfileTable().GetProfileByLoginAndPassword(ids, password);
 
-            
+            locworker = Main.Instance.worker;
 
-            switch (worker.profileCategory.id)
+            switch (locworker.profileCategory.id)
             {
                 case 1:
                     ReaderMainWindow rm = new ReaderMainWindow();
