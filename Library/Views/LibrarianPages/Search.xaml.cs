@@ -1,5 +1,6 @@
 ﻿using Library.Controllers;
 using Library.Models;
+using Library.Models.TableElements;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,6 +24,7 @@ namespace Library.Views.LibrarianPages
     /// </summary>
     public partial class Search : Page
     {
+        SearchClientController sc;
         public Search()
         {
             
@@ -32,9 +34,21 @@ namespace Library.Views.LibrarianPages
             lbSurname.Content = Main.Instance.client.surname;
             lbTepephone.Content = Main.Instance.client.telephone;
             lbAddress.Content = Main.Instance.client.address;
-            SearchClientController sc = new SearchClientController();
+            sc = new SearchClientController();
             ObservableCollection<BookRow> list = sc.Startup();
             dataGrid.ItemsSource = list;
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string quarry = tbSearch.Text;
+            bool isForName;
+            if ((((ComboBoxItem)cbType.SelectedItem).Name) == "ForName")
+                isForName = true;
+            else
+                isForName = false;
+            ObservableCollection<Book> list = sc.getSearchedList(quarry, isForName) ;
+            dataGrid1.ItemsSource = list;
         }
     }
 }

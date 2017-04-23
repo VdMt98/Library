@@ -55,12 +55,29 @@
             </TabItem>
             <TabItem Name="GiveBook" Header="Видача книг" FontSize="18">
                 <Grid Background="White">
-                    <Button x:Name="button" Content="Пошук" HorizontalAlignment="Left" Margin="910,31,0,0" VerticalAlignment="Top" Width="75" Height="39" FontSize="18"/>
-                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="39" Margin="205,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="485" VerticalContentAlignment="Center" FontSize="18" />
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="710,31,0,0" VerticalAlignment="Top" Width="175" Height="39" FontSize="18">
+                    <Button x:Name="btnSearch" Content="Пошук" HorizontalAlignment="Left" Margin="910,31,0,0" VerticalAlignment="Top" Width="97" Height="39" FontSize="18" Click="btnSearch_Click"/>
+                    <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="39" Margin="32,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="658" VerticalContentAlignment="Center" FontSize="18" />
+                    <ComboBox x:Name="cbType" HorizontalAlignment="Left" Margin="710,31,0,0" VerticalAlignment="Top" Width="175" Height="39" FontSize="18">
                         <ComboBoxItem Name="ForName" Content="За назвою" IsSelected="True" />
                         <ComboBoxItem Name="ForAuthor" Content="За автором "/>
                     </ComboBox>
+                    <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="32,92,0,0" VerticalAlignment="Top" Height="460" Width="975" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  FontSize="18">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="100"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Назва" Binding="{Binding name}" Width="330"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Автор" Binding="{Binding author}" Width="330"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Розташування" Binding="{Binding position}" Width="220"></DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnGive" Content="Видати" HorizontalAlignment="Left" Margin="910,569,0,0" VerticalAlignment="Top" Width="97" Height="33"/>
 
                 </Grid>
             </TabItem>
