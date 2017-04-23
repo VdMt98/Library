@@ -16,11 +16,17 @@ namespace Library.Models.Tables
             return String.Format("SELECT * FROM book WHERE id={0};", id.ToString());
         }
 
-        protected override Book LoadElementFromDB(int id)
+        private MySqlDataReader GetDataReader(string sql)
         {
             MySqlConnection c = Connector.Instance.GetConnection();
-            MySqlCommand command = new MySqlCommand(getSql_SelectById(id), c);
-            return GetBookFromReader(command.ExecuteReader());
+            MySqlCommand command = new MySqlCommand(sql, c);
+            return command.ExecuteReader();
+        }
+
+        protected override Book LoadElementFromDB(int id)
+        {
+            MySqlDataReader reader = GetDataReader(getSql_SelectById(id));
+            return GetBookFromReader(reader);
         }
 
         private Book GetBookFromReader(MySqlDataReader reader)
@@ -51,14 +57,8 @@ namespace Library.Models.Tables
         public List<Book> GetBooksInuseByRecipientId(int recipientId) {
             List<Book> result = new List<Book>();
             string sql = String.Format("SELECT id FROM book WHERE Recipient={0};", recipientId.ToString());
-            MySqlConnection c = Connector.Instance.GetConnection();
-            MySqlCommand command = new MySqlCommand(sql, c);
-            MySqlDataReader reader = command.ExecuteReader();
-            List<int> booksids = new List<int>();
-            while (reader.Read()) {
-                int bookId = reader.GetInt32(0);
-                booksids.Add(bookId);
-            }
+            MySqlDataReader reader = GetDataReader(sql);
+            List<int> booksids = GetIDsFromDataReader(reader);
             foreach (int bookid in booksids) {
                 result.Add(GetElement(bookid));
             }
@@ -72,6 +72,41 @@ namespace Library.Models.Tables
                 result.Add(book.GetBookRow());
             }
             return result;
+        }
+
+        public List<Book> GetBooksByAuthor(string author) {
+            List<Book> result = new List<Book>();
+            string sql = String.Format("SELECT id FROM book WHERE Author LIKE \"%{0}%\" AND Status=1;", author);
+            MySqlDataReader reader = GetDataReader(sql);
+            List<int> booksids = GetIDsFromDataReader(reader);
+            foreach (int bookid in booksids)
+            {
+                result.Add(GetElement(bookid));
+            }
+            return result;
+        }
+
+        public List<Book> GetBooksByName(string name)
+        {
+            List<Book> result = new List<Book>();
+            string sql = String.Format("SELECT id FROM book WHERE Name LIKE \"%{0}%\" AND Status=1;", name);
+            MySqlDataReader reader = GetDataReader(sql);
+            List<int> booksids = GetIDsFromDataReader(reader);
+            foreach (int bookid in booksids)
+            {
+                result.Add(GetElement(bookid));
+            }
+            return result;
+        }
+
+        private List<int> GetIDsFromDataReader(MySqlDataReader reader) {
+            List<int> booksids = new List<int>();
+            while (reader.Read())
+            {
+                int bookId = reader.GetInt32(0);
+                booksids.Add(bookId);
+            }
+            return booksids;
         }
     }
 }
