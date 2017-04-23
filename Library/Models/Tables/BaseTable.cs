@@ -46,6 +46,12 @@ namespace Library.Models.Tables
             return command.ExecuteReader();
         }
 
+        protected int ExecuteCommand(string sql) {
+            MySqlConnection c = Connector.Instance.GetConnection();
+            MySqlCommand command = new MySqlCommand(sql, c);
+            return command.ExecuteNonQuery();
+        }
+
         protected List<int> GetIDsFromDataReader(MySqlDataReader reader)
         {
             List<int> ids = new List<int>();
@@ -69,5 +75,12 @@ namespace Library.Models.Tables
 
         protected abstract T LoadElementFromDB(int id);
 
+        public virtual void InsertElementToDB(T element) {
+            throw new Exception("Insert " + typeof(T).ToString() + " to DataBase is not supported!");
+        }
+
+        public virtual void UpdateElementInDB(T element) {
+            throw new Exception("Update " + typeof(T).ToString() + " to DataBase is not supported!");
+        }
     }
 }

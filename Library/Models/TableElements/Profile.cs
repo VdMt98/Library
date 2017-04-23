@@ -17,6 +17,8 @@ namespace Library.Models.TableElements
         public ProfileStatus profileStatus { get; set; }
         public ProfileCategory profileCategory { get; set; }
 
+        public Profile() : base(-1) {
+        }
 
         public Profile(int id, int idProfile, string password, string name, string surname, 
             string telephone, string address, ProfileStatus profileStatus, ProfileCategory profileCategory):base(id)
