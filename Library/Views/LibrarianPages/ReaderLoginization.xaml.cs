@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library.Controllers;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,33 @@ namespace Library.Views.LibrarianPages
     /// </summary>
     public partial class ReaderLoginization : Page
     {
+        
         public ReaderLoginization()
         {
            
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int login = int.Parse(tbLogin.Text);
+                String password = pbPassword.Password;
+                ReaderLoginizationController rc = new ReaderLoginizationController();
+                rc.LogIn(login, password);
+                NavigationService.Navigate(new Search());
+            }
+             catch(FormatException)
+            {
+                MessageBox.Show("Некоректно введені дані");
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Неправильно введені id або пароль");
+            }
+
+
+
         }
     }
 }
