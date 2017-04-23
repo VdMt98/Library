@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Library.Views
+namespace Library.Views.LibrarianPages
 {
     /// <summary>
     /// Interaction logic for BookReturnink.xaml
@@ -22,7 +23,22 @@ namespace Library.Views
     {
         public BookReturnink()
         {
-            //InitializeComponent();
+            InitializeComponent();
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var c = new BookReturninkController();
+                int bookid = int.Parse(tbbookId.Text);
+                c.ReturnBook(bookid);
+                MessageBox.Show("Книгу повернено");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Некоректно введений код книги");
+            }
         }
     }
 }

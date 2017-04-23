@@ -9,7 +9,7 @@
          WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="tbIndex" HorizontalAlignment="Left" Height="35" Margin="75,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontSize="18"/>
-        <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="85" FontSize="18" Height="35"/>
+        <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="85" FontSize="18" Height="35" Click="button_Click"/>
 
     </Grid>
 </Window>

@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:Library.Views.LibrarianPages"
       mc:Ignorable="d" 
       d:DesignHeight="691" d:DesignWidth="1093"
-      Title="BookReturnink" Background="White">
+      Title="BookReturnink">
 
-    <Grid>
+    <Grid Background="White">
         <Label x:Name="label" Content="Id книги" HorizontalAlignment="Left" Margin="466,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.789,0.385" FontSize="25"/>
-        <TextBox x:Name="bookId" HorizontalAlignment="Left" Height="35" Margin="440,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" VerticalContentAlignment="Center" FontSize="17"/>
-        <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="466,235,0,0" VerticalAlignment="Top" Width="105" Height="40" FontSize="18"/>
+        <TextBox x:Name="tbbookId" HorizontalAlignment="Left" Height="35" Margin="440,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" VerticalContentAlignment="Center" FontSize="17"/>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Margin="466,225,0,0" VerticalAlignment="Top" Width="95" Height="35" FontSize="18" Click="btnOK_Click"/>
     </Grid>
 </Page>

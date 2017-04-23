@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,14 @@ namespace Library.Views.LibrarianPages
         public ReadGivenBookIndex()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var c = new ReadGivenBookIndexController();
+            int bookid = int.Parse(tbIndex.Text);
+            c.GiveBook(bookid, Main.Instance.client.id);
+            this.Close();
         }
     }
 }

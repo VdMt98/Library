@@ -74,12 +74,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\BookReturninkController.cs" />
     <Compile Include="Controllers\Connector.cs" />
     <Compile Include="Controllers\DAO.cs" />
     <Compile Include="Controllers\LibrarianMainWindowController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReaderLoginizationController.cs" />
     <Compile Include="Controllers\ReaderMainWindowController.cs" />
+    <Compile Include="Controllers\ReadGivenBookIndexController.cs" />
     <Compile Include="Controllers\SearchClientController.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Models\TableElements\BaseTableElement.cs" />
@@ -102,11 +104,11 @@
     <Compile Include="Views\AdminPages\EditingProfile.xaml.cs">
       <DependentUpon>EditingProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LibrarianPages\BookReturnink.xaml.cs">
-      <DependentUpon>BookReturnink.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\LibrarianMainWindow.xaml.cs">
       <DependentUpon>LibrarianMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LibrarianPages\BookReturnink.xaml.cs">
+      <DependentUpon>BookReturnink.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LibrarianPages\ReaderLoginization.xaml.cs">
       <DependentUpon>ReaderLoginization.xaml</DependentUpon>
@@ -135,11 +137,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LibrarianPages\BookReturnink.xaml">
+    <Page Include="Views\LibrarianMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LibrarianMainWindow.xaml">
+    <Page Include="Views\LibrarianPages\BookReturnink.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

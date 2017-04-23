@@ -38,7 +38,7 @@ namespace Library.Models.Tables
             DateTime issueDate = new DateTime();
             int issueTerm = 0;
             Profile recipient = null;
-            if (bookStatus.status.Equals("Inuse")) {
+            if (bookStatus.id == 2) {
                 issueDate = DateTime.Parse(IssueDate);
                 issueTerm = int.Parse(IssueTerm);
                 recipient = DAO.GetProfileTable().GetElement(int.Parse(RecipientId));
@@ -49,7 +49,7 @@ namespace Library.Models.Tables
 
         public List<Book> GetBooksInuseByRecipientId(int recipientId) {
             List<Book> result;
-            string sql = String.Format("SELECT id FROM book WHERE Recipient={0};", recipientId.ToString());
+            string sql = String.Format("SELECT id FROM book WHERE Recipient={0} AND Status=2", recipientId.ToString());
             MySqlDataReader reader = GetDataReader(sql);
             List<int> booksids = GetIDsFromDataReader(reader);
             result = GetElements(booksids.ToArray());
@@ -86,14 +86,16 @@ namespace Library.Models.Tables
 
         public override void UpdateElementInDB(Book element)
         {
-            string sql = "UPDATE `mydb`.`book` SET `IssueDate`= '{0}', `IssueTerm`= '{1}', `Recipient`= '{2}', `Status`= '{3}' WHERE `id`= '{4}';";
+            string sql = "SHET";
             if (element.status.id == 1)
             {
-                sql = String.Format(sql, null, null, null, element.id);
+                sql = "UPDATE `mydb`.`book` SET  `Status`= '{0}' WHERE `id`= '{1}';";
+                sql = String.Format(sql, element.status.id, element.id);
             }
             else
             {
-                sql = String.Format(sql, element.issueDate, element.issueTerm, element.recipient.id, element.id);
+                sql = "UPDATE `mydb`.`book` SET `IssueDate`='{0}', `Recipient`='{1}',  `Status`= '{2}' WHERE `id`= '{3}';";
+                sql = String.Format(sql, element.issueDate.ToString("yyyy-MM-dd"), element.recipient.id, element.status.id, element.id);
             }
             ExecuteCommand(sql);
             elements.Remove(element);
