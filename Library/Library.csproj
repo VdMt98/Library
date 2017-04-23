@@ -111,6 +111,9 @@
     <Compile Include="Views\LibrarianPages\ReaderLoginization.xaml.cs">
       <DependentUpon>ReaderLoginization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LibrarianPages\ReadGivenBookIndex.xaml.cs">
+      <DependentUpon>ReadGivenBookIndex.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LibrarianPages\Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LibrarianPages\ReaderLoginization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LibrarianPages\ReadGivenBookIndex.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,6 +27,8 @@ namespace Library.Views
             string[] inf = lc.setMainInformation();
             lbSurname.Content = inf[0];
             lbName.Content = inf[1];
+
+            
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

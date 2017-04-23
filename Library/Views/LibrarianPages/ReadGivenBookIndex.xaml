@@ -1,0 +1,15 @@
+﻿<Window x:Class="Library.Views.LibrarianPages.ReadGivenBookIndex"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.Views.LibrarianPages"
+        mc:Ignorable="d"
+        Title=" Видача книги" Height="217" Width="300"
+         WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="tbIndex" HorizontalAlignment="Left" Height="35" Margin="75,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontSize="18"/>
+        <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="85" FontSize="18" Height="35"/>
+
+    </Grid>
+</Window>

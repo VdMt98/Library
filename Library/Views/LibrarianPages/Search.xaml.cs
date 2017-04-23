@@ -29,12 +29,20 @@ namespace Library.Views.LibrarianPages
         {
             
             InitializeComponent();
+            initialized = true;
             lbId.Content = Main.Instance.client.id;
             lbName.Content = Main.Instance.client.name;
             lbSurname.Content = Main.Instance.client.surname;
             lbTepephone.Content = Main.Instance.client.telephone;
             lbAddress.Content = Main.Instance.client.address;
             sc = new SearchClientController();
+            //ObservableCollection<BookRow> list = sc.Startup();
+            //dataGrid.ItemsSource = list;
+            loadTable();
+        }
+        bool initialized;
+        public void loadTable()
+        {
             ObservableCollection<BookRow> list = sc.Startup();
             dataGrid.ItemsSource = list;
         }
@@ -49,6 +57,20 @@ namespace Library.Views.LibrarianPages
                 isForName = false;
             ObservableCollection<Book> list = sc.getSearchedList(quarry, isForName) ;
             dataGrid1.ItemsSource = list;
+        }
+
+        private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!initialized)
+                return;
+            if (((TabItem)tabControl.SelectedItem).Name == "BasicInf")
+                loadTable();
+        }
+
+        private void btnGive_Click(object sender, RoutedEventArgs e)
+        {
+            ReadGivenBookIndex ri = new ReadGivenBookIndex();
+            ri.Show();
         }
     }
 }

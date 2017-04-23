@@ -9,8 +9,8 @@
       Title="Search">
 
     <Grid Background="White">
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="691" VerticalAlignment="Top" TabStripPlacement="Top" Width="1093">
-            <TabItem Name="BasicInf" Header="Основна інформація" FontSize="18">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="691" VerticalAlignment="Top" TabStripPlacement="Top" Width="1093" SelectionChanged="tabControl_SelectionChanged">
+            <TabItem Name="BasicInf" Header="Основна інформація" FontSize="18" Height="30" VerticalAlignment="Bottom">
                 <Grid Background="White">
                     <Label x:Name="label" Content="ID:" HorizontalAlignment="Left" Margin="20,38,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label1" Content="Ім'я:" HorizontalAlignment="Left" Margin="20,87,0,0" VerticalAlignment="Top"/>
@@ -53,7 +53,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Name="GiveBook" Header="Видача книг" FontSize="18">
+            <TabItem Name="GiveBook" Header="Видача книг" FontSize="18" Height="32" VerticalAlignment="Bottom">
                 <Grid Background="White">
                     <Button x:Name="btnSearch" Content="Пошук" HorizontalAlignment="Left" Margin="910,31,0,0" VerticalAlignment="Top" Width="97" Height="39" FontSize="18" Click="btnSearch_Click"/>
                     <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="39" Margin="32,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="658" VerticalContentAlignment="Center" FontSize="18" />
@@ -77,7 +77,7 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="btnGive" Content="Видати" HorizontalAlignment="Left" Margin="910,569,0,0" VerticalAlignment="Top" Width="97" Height="33"/>
+                    <Button x:Name="btnGive" Content="Видати" HorizontalAlignment="Left" Margin="910,569,0,0" VerticalAlignment="Top" Width="97" Height="33" Click="btnGive_Click"/>
 
                 </Grid>
             </TabItem>
