@@ -7,7 +7,21 @@
         mc:Ignorable="d"
         Title="ReaderMainWindow" WindowState="Maximized" Height="742" Width="1366">
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="18" >
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True"
+                  IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  FontSize="18" >
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding isProsro4eno}" Value="true">
+                            <Setter Property="Background" Value="Red"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding isProsro4eno}" Value="false">
+                            <Setter Property="Background" Value="White"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>

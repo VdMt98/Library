@@ -23,6 +23,34 @@
                     <Label x:Name="lbSurname" Content="" HorizontalAlignment="Left" Margin="130,137,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbTepephone" Content="" HorizontalAlignment="Left" Margin="520,38,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lbAddress" Content="" HorizontalAlignment="Left" Margin="520,87,0,0" VerticalAlignment="Top"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Height="405" Width="1067" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                  FontSize="18">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding isProsro4eno}" Value="true">
+                                        <Setter Property="Background" Value="Red"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding isProsro4eno}" Value="false">
+                                        <Setter Property="Background" Value="White"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="100"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Назва" Binding="{Binding name}" Width="300"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Автор" Binding="{Binding author}" Width="300"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата видачі" Binding="{Binding issueDate}" Width="200"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Термін видачі" Binding="{Binding issueTerm}" Width="170"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Name="GiveBook" Header="Видача книг" FontSize="18">

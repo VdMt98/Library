@@ -35,11 +35,11 @@ namespace Library.Views
 
             try
             {
-                //int login = int.Parse(tbLogin.Text);
-                //String password = pbPassword.Password;
+                int login = int.Parse(tbLogin.Text);
+                String password = pbPassword.Password;
                 LoginController lg = new LoginController();
-                //lg.LogIn(login, password, this);
-                lg.LogIn(123460, "bibl", this);
+                lg.LogIn(login, password, this);
+                //lg.LogIn(123460, "bibl", this);
             }
             catch(FormatException)
             {

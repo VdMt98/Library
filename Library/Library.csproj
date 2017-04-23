@@ -80,6 +80,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReaderLoginizationController.cs" />
     <Compile Include="Controllers\ReaderMainWindowController.cs" />
+    <Compile Include="Controllers\SearchClientController.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Models\TableElements\BaseTableElement.cs" />
     <Compile Include="Models\BookRow.cs" />

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Library.Controllers;
+using Library.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +25,16 @@ namespace Library.Views.LibrarianPages
     {
         public Search()
         {
+            
             InitializeComponent();
             lbId.Content = Main.Instance.client.id;
             lbName.Content = Main.Instance.client.name;
             lbSurname.Content = Main.Instance.client.surname;
             lbTepephone.Content = Main.Instance.client.telephone;
             lbAddress.Content = Main.Instance.client.address;
+            SearchClientController sc = new SearchClientController();
+            ObservableCollection<BookRow> list = sc.Startup();
+            dataGrid.ItemsSource = list;
         }
     }
 }
