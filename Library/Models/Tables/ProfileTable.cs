@@ -60,5 +60,33 @@ namespace Library.Models.Tables
             result = GetElements(ids.ToArray());
             return result;
         }
+
+        public int GetMaxIdProfile() {
+            string sql = "SELECT MAX(idProfile) FROM profile;";
+            var reader = GetDataReader(sql);
+            if (reader.Read())
+                return reader.GetInt32(0);
+            return -1;
+        }
+
+        public override void InsertElementToDB(Profile element) {
+            string sql = String.Format("INSERT INTO " +
+                "profile (`idProfile`, `Password`, `Name`, `Surname`, `Telephone`, `Address`, `ProfileStatus`, `ProfileCategory`) " +
+                "VALUES " +
+                "({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}'",
+                element.idProfile, element.password, element.name, element.surname, element.telephone, element.address, element.profileStatus.id, element.profileCategory.id);
+            ExecuteCommand(sql);
+        }
+
+        //UPDATE `mydb`.`profile` SET `id`='12', `idProfile`='123467', `Password`='user1', `Name`='NewUser1', `Surname`='1', `Telephone`='13232312323', `Address`='adress', `ProfileStatus`='2', `ProfileCategory`='1' WHERE `id`='11' and`idProfile`='123464';
+        public override void UpdateElementInDB(Profile element)
+        {
+            string sql = "UPDATE `mydb`.`profile` SET  `idProfile`='{0}', `Password`='{1}', " +
+                "`Name`='{2}', `Surname`='{3}', `Telephone`='{4}', `Address`='{5}', " +
+                "`ProfileStatus`='{6}', `ProfileCategory`='{7}';";
+            sql = String.Format(sql, element.idProfile, element.password, element.name, element.surname, element.telephone, 
+                element.address, element.profileStatus.id, element.profileCategory.id);
+            ExecuteCommand(sql);
+        }
     }
 }
