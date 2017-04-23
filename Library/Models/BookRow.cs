@@ -11,16 +11,29 @@ namespace Library.Models
         public int id { get; set; }
         public string name { get; set; }
         public string author { get; set; }
-        public string issueDate { get; set; }
+        private DateTime _issueDate;
         public int issueTerm { get; set; }
-        
+
         public BookRow(int id, string name, string author, DateTime issueDate, int issueTerm)
         {
             this.id = id;
             this.name = name;
             this.author = author;
-            this.issueDate = issueDate.ToShortDateString();
+            this._issueDate = issueDate;
             this.issueTerm = issueTerm;
+        }
+
+        public string issueDate { get{ return _issueDate.ToShortDateString(); } }
+
+        public bool isProsro4eno
+        {
+            get
+            {
+                int result = 0;
+                DateTime getBackDate = _issueDate.AddDays(issueTerm);
+                result = DateTime.Now.CompareTo(getBackDate);
+                return result >= 0;
+            }
         }
     }
 }
