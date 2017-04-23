@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Library.Exceptions;
 
 namespace Library.Views.LibrarianPages
 {
@@ -27,10 +28,16 @@ namespace Library.Views.LibrarianPages
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            var c = new ReadGivenBookIndexController();
-            int bookid = int.Parse(tbIndex.Text);
-            c.GiveBook(bookid, Main.Instance.client.id);
-            this.Close();
+            try
+            {
+                var c = new ReadGivenBookIndexController();
+                int bookid = int.Parse(tbIndex.Text);
+                c.GiveBook(bookid, Main.Instance.client.id);
+                this.Close();
+            }catch (GivingGivenBookException)
+            {
+                MessageBox.Show("Книга уже видана");
+            } 
         }
     }
 }

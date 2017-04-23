@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Library.Exceptions;
 
 namespace Library.Views.LibrarianPages
 {
@@ -38,6 +39,9 @@ namespace Library.Views.LibrarianPages
             catch (FormatException)
             {
                 MessageBox.Show("Некоректно введений код книги");
+            }catch (TakingTakenBookExceptino)
+            {
+                MessageBox.Show("Книга уже повернена раніше");
             }
         }
     }

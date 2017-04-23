@@ -83,6 +83,8 @@
     <Compile Include="Controllers\ReaderMainWindowController.cs" />
     <Compile Include="Controllers\ReadGivenBookIndexController.cs" />
     <Compile Include="Controllers\SearchClientController.cs" />
+    <Compile Include="Exceptions\GivingGivenBookException.cs" />
+    <Compile Include="Exceptions\TakingTakenBookExceptino.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Models\TableElements\BaseTableElement.cs" />
     <Compile Include="Models\BookRow.cs" />
