@@ -51,5 +51,14 @@ namespace Library.Models.Tables
             
             return result;
         }
+
+        public List<Profile> GetProfilesByNameAndSurname(string name, string surname) {
+            List<Profile> result;
+            string sql = String.Format("SELECT id FROM profile WHERE Name LIKE \"%{0}%\" AND Surname LIKE \"%{1}%\";", name, surname);
+            var reader = GetDataReader(sql);
+            var ids = GetIDsFromDataReader(reader);
+            result = GetElements(ids.ToArray());
+            return result;
+        }
     }
 }
