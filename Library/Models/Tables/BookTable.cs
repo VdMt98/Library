@@ -84,6 +84,20 @@ namespace Library.Models.Tables
             return result;
         }
 
-        
+        public override void UpdateElementInDB(Book element)
+        {
+            string sql = "UPDATE `mydb`.`book` SET `IssueDate`= '{0}', `IssueTerm`= '{1}', `Recipient`= '{2}', `Status`= '{3}' WHERE `id`= '{4}';";
+            if (element.status.id == 1)
+            {
+                sql = String.Format(sql, null, null, null, element.id);
+            }
+            else
+            {
+                sql = String.Format(sql, element.issueDate, element.issueTerm, element.recipient.id, element.id);
+            }
+            ExecuteCommand(sql);
+            elements.Remove(element);
+            element = GetElement(element.id);
+        }
     }
 }

@@ -73,7 +73,7 @@ namespace Library.Models.Tables
             string sql = String.Format("INSERT INTO " +
                 "profile (`idProfile`, `Password`, `Name`, `Surname`, `Telephone`, `Address`, `ProfileStatus`, `ProfileCategory`) " +
                 "VALUES " +
-                "({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}'",
+                "({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}');",
                 element.idProfile, element.password, element.name, element.surname, element.telephone, element.address, element.profileStatus.id, element.profileCategory.id);
             ExecuteCommand(sql);
         }
