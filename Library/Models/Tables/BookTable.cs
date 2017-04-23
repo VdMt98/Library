@@ -18,9 +18,8 @@ namespace Library.Models.Tables
 
         protected override Book LoadElementFromDB(int id)
         {
-            MySqlConnection c = Connector.Instance.GetConnection();
-            MySqlCommand command = new MySqlCommand(getSql_SelectById(id), c);
-            return GetBookFromReader(command.ExecuteReader());
+            MySqlDataReader reader = GetDataReader(getSql_SelectById(id));
+            return GetBookFromReader(reader);
         }
 
         private Book GetBookFromReader(MySqlDataReader reader)
@@ -49,19 +48,11 @@ namespace Library.Models.Tables
         }
 
         public List<Book> GetBooksInuseByRecipientId(int recipientId) {
-            List<Book> result = new List<Book>();
+            List<Book> result;
             string sql = String.Format("SELECT id FROM book WHERE Recipient={0};", recipientId.ToString());
-            MySqlConnection c = Connector.Instance.GetConnection();
-            MySqlCommand command = new MySqlCommand(sql, c);
-            MySqlDataReader reader = command.ExecuteReader();
-            List<int> booksids = new List<int>();
-            while (reader.Read()) {
-                int bookId = reader.GetInt32(0);
-                booksids.Add(bookId);
-            }
-            foreach (int bookid in booksids) {
-                result.Add(GetElement(bookid));
-            }
+            MySqlDataReader reader = GetDataReader(sql);
+            List<int> booksids = GetIDsFromDataReader(reader);
+            result = GetElements(booksids.ToArray());
             return result;
         }
 
@@ -73,5 +64,26 @@ namespace Library.Models.Tables
             }
             return result;
         }
+
+        public List<Book> GetBooksByAuthor(string author) {
+            List<Book> result;
+            string sql = String.Format("SELECT id FROM book WHERE Author LIKE \"%{0}%\" AND Status=1;", author);
+            MySqlDataReader reader = GetDataReader(sql);
+            List<int> booksids = GetIDsFromDataReader(reader);
+            result = GetElements(booksids.ToArray());
+            return result;
+        }
+
+        public List<Book> GetBooksByName(string name)
+        {
+            List<Book> result;
+            string sql = String.Format("SELECT id FROM book WHERE Name LIKE \"%{0}%\" AND Status=1;", name);
+            MySqlDataReader reader = GetDataReader(sql);
+            List<int> booksids = GetIDsFromDataReader(reader);
+            result = GetElements(booksids.ToArray());
+            return result;
+        }
+
+        
     }
 }
