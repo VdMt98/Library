@@ -27,7 +27,7 @@ namespace Library.Views
             InitializeComponent();
             ReaderMainWindowController rm = new ReaderMainWindowController();
             ObservableCollection<BookRow> col = rm.createTable();
-            dataGrid.ItemsSource = col;
+            dataGrid.ItemsSource = col;            
         }
     }
 }
