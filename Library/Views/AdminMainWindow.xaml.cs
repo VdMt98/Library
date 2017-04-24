@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Library.Views.AdminPages;
+using Library.Controllers;
 
 namespace Library.Views
 {
@@ -23,6 +24,10 @@ namespace Library.Views
         public AdminMainWindow()
         {
             InitializeComponent();
+            var ac = new AdminMainWindowController();
+            string[] inf = ac.setMainInformation();
+            lbSurname.Content = inf[0];
+            lbName.Content = inf[1];
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         { 
@@ -38,8 +43,7 @@ namespace Library.Views
             switch (selected.Name)
             {
                 case "profileEditin":
-                    EditingProfile ep = new EditingProfile();
-                    ep.Show();//
+                    frame.NavigationService.Navigate(new Uri("Views/AdminPages/ProfileSelect.xaml", UriKind.Relative));
                     break;
                 
             }

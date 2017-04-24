@@ -17,7 +17,9 @@
                 </TransformGroup>
             </Separator.RenderTransform>
         </Separator>
-        <Frame x:Name="frame" Content="Browser" HorizontalAlignment="Left" Height="691" Margin="255,10,0,0" VerticalAlignment="Top" Width="1093"/>
+        <Label x:Name="lbSurname" Content="" HorizontalAlignment="Left" Margin="42,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.7,0.577" FontSize="18"/>
+        <Label x:Name="lbName" Content="" HorizontalAlignment="Left" Margin="42,74,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Frame x:Name="frame" Content="" HorizontalAlignment="Left" Height="691" Margin="255,10,0,0" VerticalAlignment="Top" Width="1093" NavigationUIVisibility="Hidden"/>
         <Button x:Name="button" Content="Вихід" HorizontalAlignment="Left" Margin="65,660,0,0" VerticalAlignment="Top" Width="115" Height="30" FontSize="15"/>
         <Separator HorizontalAlignment="Left" Height="5" Margin="0,125,0,0" VerticalAlignment="Top" Width="245"/>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="110" Margin="10,135,0,0" VerticalAlignment="Top" Width="225" Background="White">

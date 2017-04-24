@@ -26,8 +26,7 @@ namespace Library.Views.LibrarianPages
         public ReaderLoginization()
         {
             InitializeComponent();
-            tbLogin.Text = "123456";
-            pbPassword.Password = "user";
+        
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

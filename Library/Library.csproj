@@ -74,11 +74,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\AdminMainWindowController.cs" />
     <Compile Include="Controllers\BookReturninkController.cs" />
     <Compile Include="Controllers\Connector.cs" />
     <Compile Include="Controllers\DAO.cs" />
     <Compile Include="Controllers\LibrarianMainWindowController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileSelectController.cs" />
     <Compile Include="Controllers\ReaderLoginizationController.cs" />
     <Compile Include="Controllers\ReaderMainWindowController.cs" />
     <Compile Include="Controllers\ReadGivenBookIndexController.cs" />
@@ -105,6 +107,9 @@
     </Compile>
     <Compile Include="Views\AdminPages\EditingProfile.xaml.cs">
       <DependentUpon>EditingProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminPages\ProfileSelect.xaml.cs">
+      <DependentUpon>ProfileSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LibrarianMainWindow.xaml.cs">
       <DependentUpon>LibrarianMainWindow.xaml</DependentUpon>
@@ -136,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AdminPages\EditingProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminPages\ProfileSelect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -26,8 +26,8 @@ namespace Library.Views
         public Login()
         {
             InitializeComponent();
-            tbLogin.Text = "123460";
-            pbPassword.Password = "bibl";
+            tbLogin.Text = "111111";
+            pbPassword.Password = "admin";
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
