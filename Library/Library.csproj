@@ -78,6 +78,7 @@
     <Compile Include="Controllers\BookReturninkController.cs" />
     <Compile Include="Controllers\Connector.cs" />
     <Compile Include="Controllers\DAO.cs" />
+    <Compile Include="Controllers\EditingProfileController.cs" />
     <Compile Include="Controllers\LibrarianMainWindowController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileSelectController.cs" />
@@ -85,7 +86,9 @@
     <Compile Include="Controllers\ReaderMainWindowController.cs" />
     <Compile Include="Controllers\ReadGivenBookIndexController.cs" />
     <Compile Include="Controllers\SearchClientController.cs" />
+    <Compile Include="Exceptions\EditingAdminException.cs" />
     <Compile Include="Exceptions\GivingGivenBookException.cs" />
+    <Compile Include="Exceptions\PasswordException.cs" />
     <Compile Include="Exceptions\TakingTakenBookExceptino.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Models\TableElements\BaseTableElement.cs" />

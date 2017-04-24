@@ -18,23 +18,23 @@ namespace Library.Models.Tables
 
         protected override Profile LoadElementFromDB(int id)
         {
-            MySqlConnection c = Connector.Instance.GetConnection();
-            MySqlCommand command = new MySqlCommand(getSql_SelectById(id), c);
-            Profile profile = GetProfileFromReader(command.ExecuteReader());
+            var reader = GetDataReader(getSql_SelectById(id));
+            Profile profile = GetProfileFromReader(reader);
             return profile;
         }
 
         public Profile GetProfileByLoginAndPassword(int idProfile, string password) {
-            MySqlConnection c = Connector.Instance.GetConnection();
             string sql = String.Format("SELECT * FROM profile WHERE idProfile={0} and Password=\"{1}\";", idProfile.ToString(), password);
-            MySqlCommand command = new MySqlCommand(sql, c);
-            return GetProfileFromReader(command.ExecuteReader());
+            var reader = GetDataReader(sql);
+            var ids = GetIDsFromDataReader(reader);
+            int id = ids[0];
+            return GetElement(id);
         }
 
         private Profile GetProfileFromReader(MySqlDataReader reader) {
             Profile result = null;
             reader.Read();
-            int id = int.Parse(reader ["id"].ToString());
+            int id = int.Parse(reader["id"].ToString());
             int idProfile = int.Parse(reader["idProfile"].ToString());
             string Password = reader["Password"].ToString();
             string Name = reader["Name"].ToString();
@@ -46,8 +46,7 @@ namespace Library.Models.Tables
             ProfileStatus profileStatus = DAO.GetProfileStatusTable().GetElement(profileStatusId);
             ProfileCategory profileCategory = DAO.GetProfileCategoryTable().GetElement(profileCategoryId);
 
-
-            result = new Profile(id, idProfile, Password, Name, Surname, Telephone, Address, profileStatus, profileCategory);
+                result = new Profile(id, idProfile, Password, Name, Surname, Telephone, Address, profileStatus, profileCategory);
             
             return result;
         }
@@ -85,17 +84,28 @@ namespace Library.Models.Tables
                 "({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}');",
                 element.idProfile, element.password, element.name, element.surname, element.telephone, element.address, element.profileStatus.id, element.profileCategory.id);
             ExecuteCommand(sql);
+            element = GetProfileByLoginAndPassword(element.idProfile, element.password);
         }
 
         //UPDATE `mydb`.`profile` SET `id`='12', `idProfile`='123467', `Password`='user1', `Name`='NewUser1', `Surname`='1', `Telephone`='13232312323', `Address`='adress', `ProfileStatus`='2', `ProfileCategory`='1' WHERE `id`='11' and`idProfile`='123464';
         public override void UpdateElementInDB(Profile element)
         {
-            string sql = "UPDATE `mydb`.`profile` SET  `idProfile`='{0}', `Password`='{1}', " +
+            string sql = "UPDATE `mydb`.`profile` SET `Password`='{1}', " +
                 "`Name`='{2}', `Surname`='{3}', `Telephone`='{4}', `Address`='{5}', " +
-                "`ProfileStatus`='{6}', `ProfileCategory`='{7}';";
+                "`ProfileStatus`='{6}', `ProfileCategory`='{7}' WHERE `idProfile`={0};";
             sql = String.Format(sql, element.idProfile, element.password, element.name, element.surname, element.telephone, 
                 element.address, element.profileStatus.id, element.profileCategory.id);
             ExecuteCommand(sql);
+            foreach(var p in elements)
+            {
+                if (p.idProfile == element.idProfile)
+                {
+                    elements.Remove(p);
+                    break;
+                }
+            }
+            element = GetProfileByLoginAndPassword(element.idProfile, element.password);
+
         }
     }
 }

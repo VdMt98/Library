@@ -45,7 +45,11 @@ namespace Library.Views
                 case "profileEditin":
                     frame.NavigationService.Navigate(new Uri("Views/AdminPages/ProfileSelect.xaml", UriKind.Relative));
                     break;
-                
+                case "BookEditing":
+                    MessageBox.Show("Розділ знаходитьса на етапі розробки");
+                    
+                    break;
+
             }
         }
     }

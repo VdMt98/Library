@@ -1,6 +1,7 @@
 ﻿using Library.Models.TableElements;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,10 @@ namespace Library.Controllers
 {
     class ProfileSelectController
     {
-        public Profile getSearchedProfile(int id)
+        public ObservableCollection<Profile> getSearchedProfiles(int idProfile)
         {
-            Profile
+            ObservableCollection<Profile> res = new ObservableCollection<Profile>(DAO.GetProfileTable().GetProfileByIdProfile(idProfile));
+            return res;
         }
     }
 }

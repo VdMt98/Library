@@ -8,22 +8,23 @@
       d:DesignHeight="691" d:DesignWidth="1093"
       Title="ProfileSelect">
 
-   
+
 
     <Grid Background="White">
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="39" Margin="32,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="658" VerticalContentAlignment="Center" FontSize="18" />
         <Button x:Name="btnSearch" Content="Пошук" HorizontalAlignment="Left" Margin="728,31,0,0" VerticalAlignment="Top" Width="97" Height="39" FontSize="18" Click="btnSearch_Click" />
         <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="32,92,0,0" VerticalAlignment="Top" Height="493" Width="975" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                   FontSize="18">
-           
+
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
                     <Setter Property="FontWeight" Value="Bold"></Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
+         
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="ID" Binding="{Binding idProfile}" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Header="Ім'я" Binding="{Binding name}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Прізвище" Binding="{Binding surname}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding telephone}" Width="130"></DataGridTextColumn>
@@ -35,5 +36,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnAddNewProfile" Content="Додати профіль" HorizontalAlignment="Left" Margin="634,610,0,0" VerticalAlignment="Top" Width="165" FontSize="18" Height="50" Click="btnAddNewProfile_Click"/>
+        <Button x:Name="btnEditProfile" Content="Редагувати профіль" HorizontalAlignment="Left" Margin="820,610,0,0" VerticalAlignment="Top" Width="187" FontSize="18" Height="50" Click="btnEditProfile_Click"/>
     </Grid>
 </Page>

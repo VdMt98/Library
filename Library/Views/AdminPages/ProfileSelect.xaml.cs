@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Library.Controllers;
+using Library.Models.TableElements;
+using System.Collections.ObjectModel;
+using Library.Exceptions;
 
 namespace Library.Views.AdminPages
 {
@@ -27,8 +31,44 @@ namespace Library.Views.AdminPages
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(tbSearch.Text);
+            int idProfile = int.Parse(tbSearch.Text);
+            var pc = new ProfileSelectController();
+            ObservableCollection<Profile> list = pc.getSearchedProfiles(idProfile);
+            dataGrid1.ItemsSource = list;
+            
+        }
 
+        private void btnAddNewProfile_Click(object sender, RoutedEventArgs e)
+        {
+            var ep = new EditingProfile(true, -1, this);
+            ep.Show();
+        }
+
+        private void btnEditProfile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Profile pr = (Profile)dataGrid1.SelectedItem;
+                if (pr.profileCategory.id == 3)
+                    throw new EditingAdminException();
+                
+                var ep = new EditingProfile(false, pr.id, this);
+                ep.Show();
+            }
+            catch (EditingAdminException)
+            {
+                MessageBox.Show("Неможливо редагувати дані адміністратора");
+            }catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Не вибрано профіль для редагування");
+            }
+        }
+        public void UpdateTable()
+        {
+            int idProfile = int.Parse(tbSearch.Text);
+            var pc = new ProfileSelectController();
+            ObservableCollection<Profile> list = pc.getSearchedProfiles(idProfile);
+            dataGrid1.ItemsSource = list;
         }
     }
 }
