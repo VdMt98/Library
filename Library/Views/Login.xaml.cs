@@ -26,8 +26,7 @@ namespace Library.Views
         public Login()
         {
             InitializeComponent();
-            tbLogin.Text = "111111";
-            pbPassword.Password = "admin";
+          
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -48,6 +47,10 @@ namespace Library.Views
                 MessageBox.Show("Некоректно введені дані");
             }
             catch (MySqlException)
+            {
+                MessageBox.Show("Неправильно введені id або пароль");
+            }
+            catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Неправильно введені id або пароль");
             }

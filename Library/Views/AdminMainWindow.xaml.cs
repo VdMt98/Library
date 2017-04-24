@@ -52,5 +52,12 @@ namespace Library.Views
 
             }
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var c = new Login();
+            c.Show();
+            this.Close();
+        }
     }
 }
